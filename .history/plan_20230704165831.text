@@ -1,0 +1,34 @@
+Set up your project:
+
+Create the necessary files and folder structure for your frontend application.
+Set up a build system or bundler if needed (e.g., webpack or Parcel).
+Create a login page:
+
+Design and implement a login page where users can enter their credentials (username/email and password).
+Handle form submission and make a POST request to the signin endpoint (https://((DOMAIN))/api/auth/signin).
+Extract the JWT from the response and store it securely on the client-side (e.g., in local storage or a secure cookie).
+Handle error scenarios and display appropriate error messages.
+Create a profile page:
+
+Design and implement a profile page where you can display your school information and chosen data.
+Use GraphQL queries to retrieve the required data from the GraphQL endpoint (https://((DOMAIN))/api/graphql-engine/v1/graphql).
+Supply the JWT in the request headers using Bearer authentication to access the data belonging to the authenticated user.
+Render the retrieved data on the profile page according to your chosen design.
+Implement statistic graphs:
+
+Decide on the types of graphs you want to display based on the available data.
+Use SVG or other suitable libraries to create the graphs.
+Retrieve the necessary data from the GraphQL endpoint and format it for rendering the graphs.
+Update the graphs dynamically as the data changes or provide interactivity if desired.
+Handle user logout:
+
+Provide a method for users to log out, such as a logout button or link.
+Implement the necessary logic to clear the stored JWT and perform any additional cleanup required.
+Host your profile:
+
+Choose a hosting platform such as GitHub Pages, Netlify, or Heroku.
+Set up your hosting environment and deploy your application.
+Make sure your profile is accessible and functional from the deployed URL.
+Throughout the implementation, make sure to follow best practices for authentication and authorization. Securely handle sensitive information, such as the JWT, and ensure that only authenticated users can access their own data.
+
+Remember to consult the documentation and resources of the libraries and frameworks you're using to understand the specific APIs and syntax required for making GraphQL queries and rendering SVG graphs.

@@ -1,0 +1,8 @@
+
+
+
+
+class  {
+}
+
+export default new  ;

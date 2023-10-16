@@ -1,0 +1,75 @@
+import View from "./View.js";
+class Graph2View extends View {
+  render(data) {
+    const svgWidth = 400;
+    const svgHeight = 400;
+    const radius = Math.min(svgWidth, svgHeight) / 2;
+    const centerX = svgWidth / 2;
+    const centerY = svgHeight / 2;
+    const filteredSkillsTotal = Object.values(data).reduce(
+      (sum, amount) => sum + amount,
+      0
+    );
+    let startAngle = 0;
+    for (const [name, amount] of Object.entries(data)) {
+      const percentage = amount / filteredSkillsTotal;
+
+      const endAngle = startAngle + percentage * 2 * Math.PI;
+
+      // Calculate the coordinates of the outer arc
+      const startX = centerX + radius * Math.cos(startAngle);
+      const startY = centerY + radius * Math.sin(startAngle);
+      const endX = centerX + radius * Math.cos(endAngle);
+      const endY = centerY + radius * Math.sin(endAngle);
+
+      // Create the path for the current slice
+      const path = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "path"
+      );
+      path.setAttribute(
+        "d",
+        `M${centerX},${centerY} L${startX},${startY} A${radius},${radius} 0 ${
+          percentage > 0.5 ? "1" : "0"
+        },1 ${endX},${endY} Z`
+      );
+      path.setAttribute("fill", this.getRandomColor());
+      document.getElementById("pieChart").appendChild(path);
+      const labelPadding = 0.1;
+      const labelX =
+        centerX +
+        radius *
+          (0.5 + labelPadding) *
+          Math.cos(startAngle + (endAngle - startAngle) / 2);
+      const labelY =
+        centerY +
+        radius *
+          (0.5 + labelPadding) *
+          Math.sin(startAngle + (endAngle - startAngle) / 2);
+      const text = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "text"
+      );
+      text.setAttribute("x", labelX);
+      text.setAttribute("y", labelY);
+      text.setAttribute("text-anchor", "middle");
+      text.setAttribute("fill", "#fff");
+
+      text.textContent = `${name..charAt(0).toUpperCase() + name.slice(1)}   ${(
+        percentage * 100
+      ).toFixed(2)}%`;
+      document.getElementById("pieChart").appendChild(text);
+      startAngle = startAngle + percentage * 2 * Math.PI;
+    }
+  }
+  getRandomColor() {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+}
+
+export default new Graph2View();
