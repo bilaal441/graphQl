@@ -16,15 +16,17 @@
           <form action="" class="login">
             <p class="err-message hidden"></p>
             <input
-              type="email"
+              type="text"
               name="username"
               placeholder="username"
               required
+              class="email"
             />
             <input
               type="password"
               name="password"
               placeholder="Password"
+              class="password"
               required
             />
             <button class="btn" type="submit">Login</button>
@@ -34,7 +36,7 @@
     </section>
 
     <section id="cards">
-      <div class="container">
+      <!-- <div class="container">
         <div class="user-idetification">
           <h1>Welcome, Bilal Sharif !</h1>
         </div>
@@ -45,14 +47,16 @@
             <div class="level-amount">24</div>
           </div>
           <div class="xp grid-item">
-            <span>xp amount</span>
-            <div class="amount"> <span>500</span>   </div>
+            <span class="label">xp amount</span>
+            <div class="amount-conatiner">
+              <span class="amount">500</span> <span class="unit"> KB</span>
+            </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
 
-    <section class="graphs">
+    <section class="graphs hidden">
       <div class="container">
         <div class="graphs-contianer">
           <div class="graph-1 flex-item">

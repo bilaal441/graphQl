@@ -16,15 +16,17 @@
           <form action="" class="login">
             <p class="err-message hidden"></p>
             <input
-              type="email"
+              type=""
               name="username"
               placeholder="username"
               required
+              class="email"
             />
             <input
               type="password"
               name="password"
               placeholder="Password"
+              class="password"
               required
             />
             <button class="btn" type="submit">Login</button>
@@ -33,25 +35,55 @@
       </div>
     </section>
 
-    <section class="graphs">
+    <section id="cards">
+      <!-- <div class="container">
+        <div class="user-idetification">
+          <h1>Welcome, Bilal Sharif !</h1>
+        </div>
+        <div class="card-container">
+          <div class="level grid-item">
+            <span class="level-label">current level</span>
+
+            <div class="level-amount">24</div>
+          </div>
+          <div class="xp grid-item">
+            <span class="label">xp amount</span>
+            <div class="amount-conatiner">
+              <span class="amount">500</span> <span class="unit"> KB</span>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </section>
+
+    <section class="graphs hidden">
       <div class="container">
         <div class="graphs-contianer">
           <div class="graph-1 flex-item">
-            <div class="info hidden">
-              <h3 class="grap-title">XP progression</h3>
+            <div class="info">
+              <h3 class="graph-title">XP progression for div-01</h3>
               <div class="graph-1-filter">
                 <div class="label">XP growth for the</div>
                 <div>
                   <select id="xp-postions" name=" filter xp by date ">
-                    <option selected value="last week">last week</option>
+                    <option value="last week">last week</option>
                     <option value="last month">last month</option>
                     <option value="last 3 months">last 3 months</option>
-                    <option value="last 6 months">last 6 months</option>
+                    <option selected value="last 6 months">
+                      last 6 months
+                    </option>
                   </select>
                 </div>
               </div>
             </div>
             <div class="svg-graph"></div>
+          </div>
+
+          <div class="graph-2 flex-item">
+            <h3 class="graph-title">skills</h3>
+            <div class="graph2-Svg">
+              <svg id="pieChart" width="400" height="400"></svg>
+            </div>
           </div>
         </div>
       </div>
